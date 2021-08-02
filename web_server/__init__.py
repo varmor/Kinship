@@ -1,24 +1,17 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, url_for
 from flask_sqlalchemy import SQLAlchemy
 from os import path
-# from flask_login import LoignManager
+from flask_login import LoginManager
 
 
-def create_server():
-	server = Flask(__name__)
+def create_app():
+	app = Flask(__name__)
+	app.config['SECRET_KEY'] ="secretkey"
 
-	server.config['SECRET_KEY'] ="secretkey"
-	@server.route("/")
-	def index():
-	    return render_template("index.html")
-	   
-	@server.route("/signin")
-	def login():
-	    return render_template("signin.html")
-	   
-	@server.route("/signup", methods=['POST', 'GET'])
-	def register():
-	    return render_template("signup.html")
+	from .views import views
+	from .auth import auth
 
-	return server
+	app.register_blueprint(views, url_prefix="/")
+	app.register_blueprint(auth, url_prefix="/")
+	return app
 	   
