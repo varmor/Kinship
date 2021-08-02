@@ -1,6 +1,6 @@
-from web_server import create_app
+from web_server import create_server
 
 
 if __name__ == "__main__":
-    app = create_app()
-    app.run(debug=True)
+    server = create_server()
+    server.run(debug=True)
