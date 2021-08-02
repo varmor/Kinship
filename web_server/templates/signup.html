@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block title %}
+<title>signup_page</title>
+{% endblock %}
+{% block body %}
+<h1>SignUP page</h1>
+<div class="container" >
+	<form method="POST">
+	  <div class="col-md-6">
+	    <label for="exampleInputEmail1" class="form-label">Email address</label>
+	    <input type="email" class="form-control" id="InputEmail1" aria-describedby="emailHelp">
+	  </div>
+	  <div class="col-md-6">
+	     <label for="InputUsername" class="form-label">Username</label>
+    <input type="text" class="form-control" id="InputUsername" required>
+	  </div>
+	  <div class="col-md-6">
+	    <label for="InputPassword1" class="form-label">Password</label>
+	    <input type="password" class="form-control" id="InputPassword1">
+	  </div>
+	  <div class="col-md-6">
+	    <label for="InputPassword2" class="form-label">Re-Enter Password</label>
+	    <input type="password" class="form-control" id="InputPassword2">
+	  </div>
+	  <div class="mt-3 form-check">
+	  <button type="submit" class="btn btn-primary">
+	  	Sign Up
+	  </button>
+	  </div>
+	</form>
+</div>
+{% endblock %}
